@@ -10,7 +10,7 @@
 #include <stdio.h>// Includes the input / output related function in our code.
 #include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
 
-void tokenizing();// Function declaration proto type of Tokenising returns no value. 
+void tokenizing ();// Function declaration proto type of Tokenising returns no value. 
 
 #endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
 
