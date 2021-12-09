@@ -2,19 +2,16 @@
   Student Id  : 125586214
   Email       : sbekele@myseneca.ca
   Course      : CPR101NBB
-  Date        : Dec 9, 2021*/
+  Date        : Dec 5, 2021*/
 
-  //#include "fundamentals.h"
-  //#include "manipulating.h"
-  //#include "converting.h"
-#include "tokenizing.h"//// Include the header with function prototype and other headers.
+#ifndef _TOKENIZING_H //checks if TOKENIZING_H has been defined as it always check if the specified identifier is dfined.   
+#define _TOKENIZING_H// Include the header with function prototype.
 
-int main()//int main () means that the function needs to to returnsome integr at the end of the execution and we do so by return 0at the end of the code.
-{
-	//	fundamentals();
-	//	manipulating();
-	//	converting();
-	tokenizing();// that executes the statements inside the brackets.
+#include <stdio.h>// Includes the input / output related function in our code.
+#include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
+main() {
 
-	return 0;// the program will execute successfully and did what it was intended to do.
+	void tokenizing();// Function declaration proto type of Tokenising returns no value. 
 }
+#endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
+
