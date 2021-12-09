@@ -1,0 +1,49 @@
+*** Start of Tokenizing Words Demo ***
+Type a few words separated by space(q - to quit):
+High jump deep dive
+Word #1 is 'High'
+Word #2 is 'jump'
+Word #3 is 'deep'
+Word #4 is 'dive'
+Type a few words separated by space(q - to quit):
+weight height measure
+Word #1 is 'weight'
+Word #2 is 'height'
+Word #3 is 'measure'
+Type a few words separated by space(q - to quit):
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Word #1 is 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+Type a few words separated by space(q - to quit):
+q
+*** End of Tokenizing Words Demo ***
+
+*** Start of Tokenizing Phrases Demo ***
+Type a few phrases separated by comma(q - to quit):
+High jump, deep dive, better late than never, call it a day
+Phrase #1 is 'High jump'
+Phrase #2 is ' deep dive'
+Phrase #3 is ' better late than never'
+Phrase #4 is ' call it a day'
+Type a few phrases separated by comma(q - to quit):
+ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+Phrase #1 is 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
+Type a few phrases separated by comma(q - to quit):
+Nice to be home, hard to believe
+Phrase #1 is 'Nice to be home'
+Phrase #2 is ' hard to believe'
+Type a few phrases separated by comma(q - to quit):
+43566876775809=0-9059998898-9098--8989---=4ioqkl;,a>,kjfp;[
+Phrase #1 is '43566876775809=0-9059998898-9098--8989---=4ioqkl;'
+Phrase #2 is 'a>'
+Phrase #3 is 'kjfp;['
+Type a few phrases separated by comma(q - to quit):
+        q
+Phrase #1 is '  q'
+Type a few phrases separated by comma(q - to quit):
+q
+*** End of Tokenizing phrase Demo ***
+
+
+C:\Users\User\OneDrive\Documents\Visual Studio 2019\Projects\CPR_Final_Poject_2\Debug\CPR_Final_Poject_2.exe (process 6528) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
