@@ -1,0 +1,818 @@
+commit 10eab9059e47936232ec28ea328d714f856b0ae6
+Author: Simon <sbekele@myseneca.ca>
+Date:   Fri Dec 10 22:36:37 2021 -0500
+
+    committing tokenizing.c for the first time
+
+diff --git a/tokenizing.c b/tokenizing.c
+new file mode 100644
+index 0000000..52bc150
+--- /dev/null
++++ b/tokenizing.c
+@@ -0,0 +1,39 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 5, 2021*/
++
++#define _CRT_SECURE_NO_WARNINGS
++
++#include "tokenizing.h" // Include the header with function prototype and other headers.
++
++void tokenizing()   // Function declaration.
++{
++    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
++
++    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
++    char* word;         // Declare a pointer to a character / string.
++    int w_counter;      // Declare an integer to hold the current word count for printing.
++
++    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
++
++    gets(words);    // Get user input of a string.
++    word = words;   // Initialize the word pointer to the string.
++
++    while (strcmp(word, "q") != 0)  // Loop until string equals "q" to quit.
++    {
++        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
++        w_counter = 1;  // Set the initial word counter to 1.
++        while (word)    // While there is a word (not a null pointer).
++        {
++            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
++            word = strtok(NULL, " ");   // Tokenize the string to get next word.
++        }
++        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
++
++        gets(words);   // Get user input of the next string.
++        word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
++    }
++    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
++}
+\ No newline at end of file
+
+commit c7168019085e0282aeea56293cc4887e9269d191
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:37:46 2021 -0500
+
+    Delete Screenshot tset case.png
+
+diff --git a/Screenshot tset case.png b/Screenshot tset case.png
+deleted file mode 100644
+index 96b4943..0000000
+Binary files a/Screenshot tset case.png and /dev/null differ
+
+commit 640fdf400a9ce4169f73c4d285a00e63eaeb6ea0
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:36:10 2021 -0500
+
+    Add files via upload
+
+commit c867b3538cbfbf95d0d63fbd6f4c1c54c0f52eaa
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:34:23 2021 -0500
+
+    Add files via upload
+
+diff --git a/tokenizing.h b/tokenizing.h
+index 955db31..410e268 100644
+--- a/tokenizing.h
++++ b/tokenizing.h
+@@ -2,7 +2,7 @@
+   Student Id  : 125586214
+   Email       : sbekele@myseneca.ca
+   Course      : CPR101NBB
+-  Date        : Dec 9, 2021*/
++  Date        : Dec 5, 2021*/
+ 
+ #ifndef _TOKENIZING_H //checks if TOKENIZING_H has been defined as it always check if the specified identifier is dfined.   
+ #define _TOKENIZING_H// Include the header with function prototype.
+@@ -10,7 +10,7 @@
+ #include <stdio.h>// Includes the input / output related function in our code.
+ #include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
+ 
+-void tokenizing ();// Function declaration proto type of Tokenising returns no value. 
++void tokenizing();// Function declaration proto type of Tokenising returns no value. 
+ 
+ #endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
+ 
+
+commit 5fe53d15df8a5b92af9cf39845e2c91d87bc53b0
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:32:35 2021 -0500
+
+    Add files via upload
+
+diff --git a/main.c b/main.c
+index 26925a0..766e0ab 100644
+--- a/main.c
++++ b/main.c
+@@ -2,19 +2,16 @@
+   Student Id  : 125586214
+   Email       : sbekele@myseneca.ca
+   Course      : CPR101NBB
+-  Date        : Dec 9, 2021*/
++  Date        : Dec 5, 2021*/
+ 
+-  //#include "fundamentals.h"
+-  //#include "manipulating.h"
+-  //#include "converting.h"
+-#include "tokenizing.h"//// Include the header with function prototype and other headers.
++#ifndef _TOKENIZING_H //checks if TOKENIZING_H has been defined as it always check if the specified identifier is dfined.   
++#define _TOKENIZING_H// Include the header with function prototype.
+ 
+-int main()//int main () means that the function needs to to returnsome integr at the end of the execution and we do so by return 0at the end of the code.
+-{
+-	//	fundamentals();
+-	//	manipulating();
+-	//	converting();
+-	tokenizing();// that executes the statements inside the brackets.
++#include <stdio.h>// Includes the input / output related function in our code.
++#include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
++main() {
+ 
+-	return 0;// the program will execute successfully and did what it was intended to do.
++	void tokenizing();// Function declaration proto type of Tokenising returns no value. 
+ }
++#endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
++
+
+commit 14388d8198f06d85138957fdee04e9375168b5ff
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:30:54 2021 -0500
+
+    Add files via upload
+
+diff --git a/tokenizing.h b/tokenizing.h
+index a429558..955db31 100644
+--- a/tokenizing.h
++++ b/tokenizing.h
+@@ -2,7 +2,7 @@
+   Student Id  : 125586214
+   Email       : sbekele@myseneca.ca
+   Course      : CPR101NBB
+-  Date        : Dec 5, 2021*/
++  Date        : Dec 9, 2021*/
+ 
+ #ifndef _TOKENIZING_H //checks if TOKENIZING_H has been defined as it always check if the specified identifier is dfined.   
+ #define _TOKENIZING_H// Include the header with function prototype.
+diff --git a/tokenizing_phrases.c b/tokenizing_phrases.c
+new file mode 100644
+index 0000000..96b544d
+--- /dev/null
++++ b/tokenizing_phrases.c
+@@ -0,0 +1,56 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 9, 2021*/
++
++#define _CRT_SECURE_NO_WARNINGS
++
++#include "tokenizing.h" // Include the header with function prototype and other headers.
++
++void tokenizing()   // Function declaration.
++{
++    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
++    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
++    char* word;         // Declare a pointer to a character / string.
++    int w_counter;      // Declare an integer to hold the current word count for printing.
++    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
++    gets(words);    // Get user input of a string.
++    //word = words;   // Initialize the word pointer to the string.
++    while (strcmp(words, "q") != 0)  // Loop until string equals "q" to quit.
++    {
++        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
++        w_counter = 1;  // Set the initial word counter to 1.
++        while (word)    // While there is a word (not a null pointer).
++        {
++            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
++            word = strtok(NULL, " ");   // Tokenize the string to get next word.
++        }
++        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
++        gets(words);   // Get user input of the next string.
++        //word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
++    }
++    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
++
++    printf("*** Start of Tokenizing Phrases Demo ***\n");   // Print welcome message at top.
++    char phrases[200];  // Declare a string to hold 199 characters plus a null terminator.
++    char* phrase;       // Declare a pointer to a character / string.
++    int p_counter;      // Declare an integer to hold the current phrase count for printing.
++    printf("Type a few phrases separated by comma(q - to quit):\n");    // Print user prompt.
++    gets(phrases);      // Get user input of a string.
++    
++    while (strcmp(phrases, "q") != 0)   // Loop until string equals "q" to quit.
++    {
++        phrase = strtok(phrases, ",");  // Get the next phrase from the initial string tokenizing by comma.
++        p_counter = 1;  // Set the initial phrase counter to 1.
++        while (phrase)  // While there is a phrase (not a null pointer).
++        {
++            printf("Phrase #%d is \'%s\'\n", p_counter++, phrase);  // Print phrase counter and phrase.
++            phrase = strtok(NULL, ",");     // Tokenize the string to get next phrase.
++        }
++        printf("Type a few phrases separated by comma(q - to quit):\n");    // Prompt for input again.
++        gets(phrases);  // Get user input of the next string.
++
++    }
++    printf("*** End of Tokenizing phrase Demo ***\n\n"); // Print exit message.
++}
+\ No newline at end of file
+
+commit ef8d28ddbd27282316b74318c2fa13bbf23c27c3
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:29:09 2021 -0500
+
+    Delete tokenizing_phrases.c
+
+diff --git a/tokenizing_phrases.c b/tokenizing_phrases.c
+deleted file mode 100644
+index ccb5279..0000000
+--- a/tokenizing_phrases.c
++++ /dev/null
+@@ -1,56 +0,0 @@
+-/*Student Name: Simon Begashaw
+-  Student Id  : 125586214
+-  Email       : sbekele@myseneca.ca
+-  Course      : CPR101NBB
+-  Date        : Dec 5, 2021*/
+-
+-#define _CRT_SECURE_NO_WARNINGS
+-
+-#include "tokenizing.h" // Include the header with function prototype and other headers.
+-
+-void tokenizing()   // Function declaration.
+-{
+-    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
+-    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
+-    char* word;         // Declare a pointer to a character / string.
+-    int w_counter;      // Declare an integer to hold the current word count for printing.
+-    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
+-    gets(words);    // Get user input of a string.
+-    //word = words;   // Initialize the word pointer to the string.
+-    while (strcmp(words, "q") != 0)  // Loop until string equals "q" to quit.
+-    {
+-        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
+-        w_counter = 1;  // Set the initial word counter to 1.
+-        while (word)    // While there is a word (not a null pointer).
+-        {
+-            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
+-            word = strtok(NULL, " ");   // Tokenize the string to get next word.
+-        }
+-        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
+-        gets(words);   // Get user input of the next string.
+-        //word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
+-    }
+-    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
+-
+-    printf("*** Start of Tokenizing Phrases Demo ***\n");   // Print welcome message at top.
+-    char phrases[200];  // Declare a string to hold 199 characters plus a null terminator.
+-    char* phrase;       // Declare a pointer to a character / string.
+-    int p_counter;      // Declare an integer to hold the current phrase count for printing.
+-    printf("Type a few phrases separated by comma(q - to quit):\n");    // Print user prompt.
+-    gets(phrases);      // Get user input of a string.
+-    
+-    while (strcmp(phrases, "q") != 0)   // Loop until string equals "q" to quit.
+-    {
+-        phrase = strtok(phrases, ",");  // Get the next phrase from the initial string tokenizing by comma.
+-        p_counter = 1;  // Set the initial phrase counter to 1.
+-        while (phrase)  // While there is a phrase (not a null pointer).
+-        {
+-            printf("Phrase #%d is \'%s\'\n", p_counter++, phrase);  // Print phrase counter and phrase.
+-            phrase = strtok(NULL, ",");     // Tokenize the string to get next phrase.
+-        }
+-        printf("Type a few phrases separated by comma(q - to quit):\n");    // Prompt for input again.
+-        gets(phrases);  // Get user input of the next string.
+-
+-    }
+-    printf("*** End of Tokenizing phrase Demo ***\n\n"); // Print exit message.
+-}
+\ No newline at end of file
+
+commit 9e2921e960b513804bffc609149ac37b2aab285a
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:20:58 2021 -0500
+
+    Add files via upload
+
+diff --git a/main.c b/main.c
+index b0c5900..26925a0 100644
+--- a/main.c
++++ b/main.c
+@@ -2,11 +2,11 @@
+   Student Id  : 125586214
+   Email       : sbekele@myseneca.ca
+   Course      : CPR101NBB
+-  Date        : Dec 5, 2021*/
++  Date        : Dec 9, 2021*/
+ 
+-//#include "fundamentals.h"
+-//#include "manipulating.h"
+-//#include "converting.h"
++  //#include "fundamentals.h"
++  //#include "manipulating.h"
++  //#include "converting.h"
+ #include "tokenizing.h"//// Include the header with function prototype and other headers.
+ 
+ int main()//int main () means that the function needs to to returnsome integr at the end of the execution and we do so by return 0at the end of the code.
+diff --git a/tokenizing.h b/tokenizing.h
+index 410e268..a429558 100644
+--- a/tokenizing.h
++++ b/tokenizing.h
+@@ -10,7 +10,7 @@
+ #include <stdio.h>// Includes the input / output related function in our code.
+ #include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
+ 
+-void tokenizing();// Function declaration proto type of Tokenising returns no value. 
++void tokenizing ();// Function declaration proto type of Tokenising returns no value. 
+ 
+ #endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
+ 
+diff --git a/tokenizing_phrases.c b/tokenizing_phrases.c
+new file mode 100644
+index 0000000..ccb5279
+--- /dev/null
++++ b/tokenizing_phrases.c
+@@ -0,0 +1,56 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 5, 2021*/
++
++#define _CRT_SECURE_NO_WARNINGS
++
++#include "tokenizing.h" // Include the header with function prototype and other headers.
++
++void tokenizing()   // Function declaration.
++{
++    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
++    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
++    char* word;         // Declare a pointer to a character / string.
++    int w_counter;      // Declare an integer to hold the current word count for printing.
++    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
++    gets(words);    // Get user input of a string.
++    //word = words;   // Initialize the word pointer to the string.
++    while (strcmp(words, "q") != 0)  // Loop until string equals "q" to quit.
++    {
++        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
++        w_counter = 1;  // Set the initial word counter to 1.
++        while (word)    // While there is a word (not a null pointer).
++        {
++            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
++            word = strtok(NULL, " ");   // Tokenize the string to get next word.
++        }
++        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
++        gets(words);   // Get user input of the next string.
++        //word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
++    }
++    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
++
++    printf("*** Start of Tokenizing Phrases Demo ***\n");   // Print welcome message at top.
++    char phrases[200];  // Declare a string to hold 199 characters plus a null terminator.
++    char* phrase;       // Declare a pointer to a character / string.
++    int p_counter;      // Declare an integer to hold the current phrase count for printing.
++    printf("Type a few phrases separated by comma(q - to quit):\n");    // Print user prompt.
++    gets(phrases);      // Get user input of a string.
++    
++    while (strcmp(phrases, "q") != 0)   // Loop until string equals "q" to quit.
++    {
++        phrase = strtok(phrases, ",");  // Get the next phrase from the initial string tokenizing by comma.
++        p_counter = 1;  // Set the initial phrase counter to 1.
++        while (phrase)  // While there is a phrase (not a null pointer).
++        {
++            printf("Phrase #%d is \'%s\'\n", p_counter++, phrase);  // Print phrase counter and phrase.
++            phrase = strtok(NULL, ",");     // Tokenize the string to get next phrase.
++        }
++        printf("Type a few phrases separated by comma(q - to quit):\n");    // Prompt for input again.
++        gets(phrases);  // Get user input of the next string.
++
++    }
++    printf("*** End of Tokenizing phrase Demo ***\n\n"); // Print exit message.
++}
+\ No newline at end of file
+
+commit d88374b9c0e9a34248201c017adc8d0f2337e314
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:17:31 2021 -0500
+
+    Delete Screenshot Tokenizing version1.png
+
+diff --git a/Screenshot Tokenizing version1.png b/Screenshot Tokenizing version1.png
+deleted file mode 100644
+index fd8fbba..0000000
+Binary files a/Screenshot Tokenizing version1.png and /dev/null differ
+
+commit 2c91206624b67b75e114386fc8ac21e852065f04
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:14:19 2021 -0500
+
+    Add files via upload
+
+commit 57a13e557907092bb9c26e1d185b481d6f5b6baa
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Thu Dec 9 08:13:09 2021 -0500
+
+    Add files via upload
+
+diff --git a/Screenshot Tokenizing version1.png b/Screenshot Tokenizing version1.png
+new file mode 100644
+index 0000000..fd8fbba
+Binary files /dev/null and b/Screenshot Tokenizing version1.png differ
+diff --git a/Screenshot tset case.png b/Screenshot tset case.png
+new file mode 100644
+index 0000000..96b4943
+Binary files /dev/null and b/Screenshot tset case.png differ
+diff --git a/screenshot version2 testing.txt b/screenshot version2 testing.txt
+new file mode 100644
+index 0000000..41afb42
+--- /dev/null
++++ b/screenshot version2 testing.txt	
+@@ -0,0 +1,49 @@
++*** Start of Tokenizing Words Demo ***
++Type a few words separated by space(q - to quit):
++High jump deep dive
++Word #1 is 'High'
++Word #2 is 'jump'
++Word #3 is 'deep'
++Word #4 is 'dive'
++Type a few words separated by space(q - to quit):
++weight height measure
++Word #1 is 'weight'
++Word #2 is 'height'
++Word #3 is 'measure'
++Type a few words separated by space(q - to quit):
++aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
++Word #1 is 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
++Type a few words separated by space(q - to quit):
++q
++*** End of Tokenizing Words Demo ***
++
++*** Start of Tokenizing Phrases Demo ***
++Type a few phrases separated by comma(q - to quit):
++High jump, deep dive, better late than never, call it a day
++Phrase #1 is 'High jump'
++Phrase #2 is ' deep dive'
++Phrase #3 is ' better late than never'
++Phrase #4 is ' call it a day'
++Type a few phrases separated by comma(q - to quit):
++ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
++Phrase #1 is 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
++Type a few phrases separated by comma(q - to quit):
++Nice to be home, hard to believe
++Phrase #1 is 'Nice to be home'
++Phrase #2 is ' hard to believe'
++Type a few phrases separated by comma(q - to quit):
++43566876775809=0-9059998898-9098--8989---=4ioqkl;,a>,kjfp;[
++Phrase #1 is '43566876775809=0-9059998898-9098--8989---=4ioqkl;'
++Phrase #2 is 'a>'
++Phrase #3 is 'kjfp;['
++Type a few phrases separated by comma(q - to quit):
++        q
++Phrase #1 is '  q'
++Type a few phrases separated by comma(q - to quit):
++q
++*** End of Tokenizing phrase Demo ***
++
++
++C:\Users\User\OneDrive\Documents\Visual Studio 2019\Projects\CPR_Final_Poject_2\Debug\CPR_Final_Poject_2.exe (process 6528) exited with code 0.
++To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
++Press any key to close this window . . .
+
+commit 74dd4363641bdd7c3d32542c29fc5538e64c8430
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Tue Dec 7 09:06:18 2021 -0500
+
+    Add files via upload
+
+diff --git a/main.c b/main.c
+new file mode 100644
+index 0000000..b0c5900
+--- /dev/null
++++ b/main.c
+@@ -0,0 +1,20 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 5, 2021*/
++
++//#include "fundamentals.h"
++//#include "manipulating.h"
++//#include "converting.h"
++#include "tokenizing.h"//// Include the header with function prototype and other headers.
++
++int main()//int main () means that the function needs to to returnsome integr at the end of the execution and we do so by return 0at the end of the code.
++{
++	//	fundamentals();
++	//	manipulating();
++	//	converting();
++	tokenizing();// that executes the statements inside the brackets.
++
++	return 0;// the program will execute successfully and did what it was intended to do.
++}
+diff --git a/tokenizing.h b/tokenizing.h
+new file mode 100644
+index 0000000..410e268
+--- /dev/null
++++ b/tokenizing.h
+@@ -0,0 +1,16 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 5, 2021*/
++
++#ifndef _TOKENIZING_H //checks if TOKENIZING_H has been defined as it always check if the specified identifier is dfined.   
++#define _TOKENIZING_H// Include the header with function prototype.
++
++#include <stdio.h>// Includes the input / output related function in our code.
++#include <string.h>// contains macro definitions, constants and declarationsof functions and types used not only for strings handling but also memory handling fuctions.
++
++void tokenizing();// Function declaration proto type of Tokenising returns no value. 
++
++#endif// this function dtermines if the preprocessing of #,#ifdef,or ifndef has been completed successfully.
++
+diff --git a/tokenizing_word.c b/tokenizing_word.c
+new file mode 100644
+index 0000000..d9f72f0
+--- /dev/null
++++ b/tokenizing_word.c
+@@ -0,0 +1,39 @@
++/*Student Name: Simon Begashaw
++  Student Id  : 125586214
++  Email       : sbekele@myseneca.ca
++  Course      : CPR101NBB
++  Date        : Dec 5, 2021*/
++
++#define _CRT_SECURE_NO_WARNINGS
++
++#include "tokenizing.h" // Include the header with function prototype and other headers.
++
++void tokenizing()   // Function declaration.
++{
++    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
++
++    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
++    char* word;         // Declare a pointer to a character / string.
++    int w_counter;      // Declare an integer to hold the current word count for printing.
++
++    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
++
++    gets(words);    // Get user input of a string.
++    word = words;   // Initialize the word pointer to the string.
++
++    while (strcmp(word, "q") != 0)  // Loop until string equals "q" to quit.
++    {
++        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
++        w_counter = 1;  // Set the initial word counter to 1.
++        while (word)    // While there is a word (not a null pointer).
++        {
++            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
++            word = strtok(NULL, " ");   // Tokenize the string to get next word.
++        }
++        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
++
++        gets(words);   // Get user input of the next string.
++        word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
++    }
++    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
++}
+\ No newline at end of file
+
+commit 5449ff7b260b9ca849c10f7f01eff06d668c069a
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Tue Dec 7 09:04:09 2021 -0500
+
+    Delete tokenizing_word.c
+
+diff --git a/tokenizing_word.c b/tokenizing_word.c
+deleted file mode 100644
+index d03e80f..0000000
+--- a/tokenizing_word.c
++++ /dev/null
+@@ -1,28 +0,0 @@
+-#define _CRT_SECURE_NO_WARNINGS
+-
+-#include "tokenizing.h" // Include the header with function prototype and other headers.
+-
+-void tokenizing()   // Function declaration.
+-{
+-    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
+-    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
+-    char* word;         // Declare a pointer to a character / string.
+-    int w_counter;      // Declare an integer to hold the current word count for printing.
+-    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
+-    gets(words);    // Get user input of a string.
+-    word = words;   // Initialize the word pointer to the string.
+-    while (strcmp(word, "q") != 0)  // Loop until string equals "q" to quit.
+-    {
+-        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
+-        w_counter = 1;  // Set the initial word counter to 1.
+-        while (word)    // While there is a word (not a null pointer).
+-        {
+-            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
+-            word = strtok(NULL, " ");   // Tokenize the string to get next word.
+-        }
+-        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
+-        gets(words);   // Get user input of the next string.
+-        word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
+-    }
+-    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
+-}
+\ No newline at end of file
+
+commit 8167696f5b823a530c9c487a46ae1f657095c234
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Tue Dec 7 09:03:23 2021 -0500
+
+    Delete tokenizing.h
+
+diff --git a/tokenizing.h b/tokenizing.h
+deleted file mode 100644
+index ba66f95..0000000
+--- a/tokenizing.h
++++ /dev/null
+@@ -1,10 +0,0 @@
+-#ifndef _TOKENIZING_H
+-#define _TOKENIZING_H
+-
+-#include <stdio.h>
+-#include <string.h>
+-
+-void tokenizing();
+-
+-#endif
+-
+
+commit 3a5a41c4ab865a10879ee36500ca14a1f9778893
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Tue Dec 7 09:03:02 2021 -0500
+
+    Delete main.c
+
+diff --git a/main.c b/main.c
+deleted file mode 100644
+index 2517f96..0000000
+--- a/main.c
++++ /dev/null
+@@ -1,12 +0,0 @@
+-//#include "fundamentals.h"
+-//#include "manipulating.h"
+-//#include "converting.h"
+-#include "tokenizing.h"
+-
+-int main() {
+-	//	fundamentals();
+-	//	manipulating();
+-	//	converting();
+-	tokenizing();
+-	return 0;
+-}
+
+commit 23a8f782ad36b9ce0ad390a042d495d26bd36b64
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 03:33:41 2021 -0500
+
+    Add files via upload
+
+diff --git a/Screenshot Tokenizing version 1.png b/Screenshot Tokenizing version 1.png
+new file mode 100644
+index 0000000..228153c
+Binary files /dev/null and b/Screenshot Tokenizing version 1.png differ
+
+commit ac24c6600b8dde669ed602bd7468e0c122d55a10
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 03:32:45 2021 -0500
+
+    Delete Screenshot tokenizing Version1.png
+
+diff --git a/Screenshot tokenizing Version1.png b/Screenshot tokenizing Version1.png
+deleted file mode 100644
+index 2e32c45..0000000
+Binary files a/Screenshot tokenizing Version1.png and /dev/null differ
+
+commit 9c47f602b540467c1400ce07c74c8e3ad309d940
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 02:53:50 2021 -0500
+
+    Delete Screenshot tokenizing .png
+
+diff --git a/Screenshot tokenizing .png b/Screenshot tokenizing .png
+deleted file mode 100644
+index 78ab58e..0000000
+Binary files a/Screenshot tokenizing .png and /dev/null differ
+
+commit 74b761cf1036e9ea6a84b77e8875bbaefda94146
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 02:46:15 2021 -0500
+
+    Add files via upload
+
+diff --git a/Screenshot tokenizing Version1.png b/Screenshot tokenizing Version1.png
+new file mode 100644
+index 0000000..2e32c45
+Binary files /dev/null and b/Screenshot tokenizing Version1.png differ
+
+commit ade4c8644b7518fef5afe1a19dee896da0f3db33
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 02:29:07 2021 -0500
+
+    Add files via upload
+
+diff --git a/Screenshot tokenizing .png b/Screenshot tokenizing .png
+new file mode 100644
+index 0000000..78ab58e
+Binary files /dev/null and b/Screenshot tokenizing .png differ
+
+commit c3fdfe5d0df80f34ede41cbfb11749cee716dcc7
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 02:24:02 2021 -0500
+
+    Add files via upload
+
+diff --git a/main.c b/main.c
+new file mode 100644
+index 0000000..2517f96
+--- /dev/null
++++ b/main.c
+@@ -0,0 +1,12 @@
++//#include "fundamentals.h"
++//#include "manipulating.h"
++//#include "converting.h"
++#include "tokenizing.h"
++
++int main() {
++	//	fundamentals();
++	//	manipulating();
++	//	converting();
++	tokenizing();
++	return 0;
++}
+diff --git a/tokenizing.h b/tokenizing.h
+new file mode 100644
+index 0000000..ba66f95
+--- /dev/null
++++ b/tokenizing.h
+@@ -0,0 +1,10 @@
++#ifndef _TOKENIZING_H
++#define _TOKENIZING_H
++
++#include <stdio.h>
++#include <string.h>
++
++void tokenizing();
++
++#endif
++
+diff --git a/tokenizing_word.c b/tokenizing_word.c
+new file mode 100644
+index 0000000..d03e80f
+--- /dev/null
++++ b/tokenizing_word.c
+@@ -0,0 +1,28 @@
++#define _CRT_SECURE_NO_WARNINGS
++
++#include "tokenizing.h" // Include the header with function prototype and other headers.
++
++void tokenizing()   // Function declaration.
++{
++    printf("*** Start of Tokenizing Words Demo ***\n"); // Initial welcome print.
++    char words[200];    // Declare a string to hold 199 characters plus a null terminator.
++    char* word;         // Declare a pointer to a character / string.
++    int w_counter;      // Declare an integer to hold the current word count for printing.
++    printf("Type a few words separated by space(q - to quit):\n"); // Print user prompt.
++    gets(words);    // Get user input of a string.
++    word = words;   // Initialize the word pointer to the string.
++    while (strcmp(word, "q") != 0)  // Loop until string equals "q" to quit.
++    {
++        word = strtok(words, " ");  // Get the next word from the initial string tokenizing by space.
++        w_counter = 1;  // Set the initial word counter to 1.
++        while (word)    // While there is a word (not a null pointer).
++        {
++            printf("Word #%d is \'%s\'\n", w_counter++, word);  // Print word number and word.
++            word = strtok(NULL, " ");   // Tokenize the string to get next word.
++        }
++        printf("Type a few words separated by space(q - to quit):\n");  // Prompt for input again.
++        gets(words);   // Get user input of the next string.
++        word = words;  // Crashes without this.  Set word to point back to the beginning of the string.
++    }
++    printf("*** End of Tokenizing Words Demo ***\n\n"); // Print exit message.
++}
+\ No newline at end of file
+
+commit 50f60f6ae50d3a2a5d9b852675a656f5055dc55e
+Author: sbekele285 <84488579+sbekele285@users.noreply.github.com>
+Date:   Sun Dec 5 02:20:14 2021 -0500
+
+    Initial commit
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..6ed6fc7
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++# CPR-Final-project
+\ No newline at end of file
